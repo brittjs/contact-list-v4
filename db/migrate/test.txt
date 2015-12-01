@@ -1,0 +1,15 @@
+Contact.create firstname: "Brittany", lastname: "See", email: "britt@gmail.com", phone: "60455555555"
+
+Contact.create firstname: "Kae", lastname: "S", email: "kae@gmail.com", phone: "5555555555"
+
+Contact.create firstname: "Dim", lastname: "D", email: "dim@gmail.com", phone: "5552225555"
+
+Contact.create firstname: "Peter", lastname: "S", email: "peter@gmail.com", phone: "4445555555"
+
+Contact.create firstname: "Rey", lastname: "S", email: "rey@gmail.com", phone: "5557775555"
+
+Contact.create firstname: "Danica", lastname: "S", email: "dan@gmail.com", phone: "5554448888"
+
+Contact.create firstname: "Joanne", lastname: "See", email: "jo@gmal.com", phone: "2225552222"
+
+Contact.create firstname: "Maleya", lastname: "S", email: "em@gmail.com", phone: "5557778888"

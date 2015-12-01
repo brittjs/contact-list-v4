@@ -1,6 +1,7 @@
 class Contact < ActiveRecord::Base
 
-  validates :name, presence: true
+  validates :firstname, presence: true
+  validates :lastname, presence: true
   validates :email, uniqueness: true
   validates :phone, presence: true
 
