@@ -29,8 +29,13 @@ end
 # delete
 delete '/contacts/:id' do |id|
   contact = Contact.find(id)
-  contact.destroy
-  Contact.all.to_json
+  contact.delete
+  if contact.delete
+    results = {result: true}
+  else
+    results = {result: false}
+  end  
+  results.to_json
 end
 
 

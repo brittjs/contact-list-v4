@@ -6,7 +6,6 @@ getContacts();
 function addContactToDOM(index, contact) {
   var tr = $("<tr>").appendTo("#displayContacts");
   // $("<td>").text(contact.id).appendTo(tr);
-  console.log(contact);
   $("<td>").text(contact.firstname).appendTo(tr);
   $("<td>").text(contact.email).appendTo(tr);
   $("<td>").text(contact.phone).appendTo(tr);
@@ -15,10 +14,8 @@ function addContactToDOM(index, contact) {
   var button = $('<button type="button" class="btn btn-default btn-xs" id="deleteContactButton"><span class="glyphicon glyphicon-remove"></span></button>');
   button.appendTo(td);
   td.appendTo(tr);
-  // button.on('click', deleteContact.bind(this, contact.id));
-  console.log(contact.id);
+  button.on('click', deleteContact.bind(this, contact.id));
 };
-
 
 function receiveContacts(contacts) {
   $.each(contacts, addContactToDOM);
@@ -26,10 +23,11 @@ function receiveContacts(contacts) {
 
 function getContacts() {
   $("#displayContacts").empty();
-  $.getJSON("/contacts", receiveContacts);
+  $.getJSON("/contacts", receiveContacts); 
+  // making a http get request request
 };
 
-$("#createContactButton").on('click', function () { 
+$("#createContactButton").on('click', function() { 
   var first = $("#firstname").val();
   var last = $("#lastname").val();
   var email_address = $("#email").val();
@@ -45,13 +43,21 @@ $("#createContactButton").on('click', function () {
     }, 'json');
 });
 
+function deleteContact(id) {
+  $.ajax({
+      url: '/contacts/' + id,
+      type: 'DELETE',
+      success: function(data) {
+        getContacts();
+      }
+    });
+};
 
 
+// $("#displayContacts tr").on('click', function() {
+//   alert('values: ' + $(this).find(".displayContacts").text() );
 
-$("#displayContacts tr").on('click', function() {
-  alert('values: ' + $(this).find(".displayContacts").text() );
-
-});
+// });
 
 
 

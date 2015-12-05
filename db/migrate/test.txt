@@ -1,4 +1,4 @@
-Contact.create firstname: "Brittany", lastname: "See", email: "britt@gmail.com", phone: "60455555555"
+Contact.create firstname: "Brittany", lastname: "See", email: "britt@gmail.com", phone: "6045555555"
 
 Contact.create firstname: "Kae", lastname: "S", email: "kae@gmail.com", phone: "5555555555"
 
