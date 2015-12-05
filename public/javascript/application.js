@@ -6,6 +6,7 @@ getContacts();
 function addContactToDOM(index, contact) {
   var tr = $("<tr>").appendTo("#displayContacts");
   // $("<td>").text(contact.id).appendTo(tr);
+  console.log(contact);
   $("<td>").text(contact.firstname).appendTo(tr);
   $("<td>").text(contact.email).appendTo(tr);
   $("<td>").text(contact.phone).appendTo(tr);
@@ -18,16 +19,6 @@ function addContactToDOM(index, contact) {
   console.log(contact.id);
 };
 
-function deleteContact(id) {
-  console.log('deleting contact ' + id)
-   $.ajax({
-      url: '/contacts/' + id,
-      method: 'DELETE',
-      success: function() {
-        getContacts();
-      }
-    });
-};
 
 function receiveContacts(contacts) {
   $.each(contacts, addContactToDOM);
@@ -38,7 +29,7 @@ function getContacts() {
   $.getJSON("/contacts", receiveContacts);
 };
 
-$("#createContactButton").on('click', function () {
+$("#createContactButton").on('click', function () { 
   var first = $("#firstname").val();
   var last = $("#lastname").val();
   var email_address = $("#email").val();
@@ -47,13 +38,13 @@ $("#createContactButton").on('click', function () {
     $.post("/contacts", contact, function(data) {
       if (data.contact) {
         contact.id = data.contact.id;
-        addContactToDOM(contact);
+        addContactToDOM(contact.id, contact);
       } else {
         alert("Unable to create contact.");
       }
-    });
     }, 'json');
-  });
+});
+
 
 
 
@@ -64,7 +55,7 @@ $("#displayContacts tr").on('click', function() {
 
 
 
-
+});
 
 
 
