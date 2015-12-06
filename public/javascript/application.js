@@ -1,11 +1,9 @@
 $(document).ready(function() {
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
 getContacts();
 
 function addContactToDOM(index, contact) {
   var tr = $("<tr>").appendTo("#displayContacts");
-  // $("<td>").attr("class", "hiddenId").hide().text(contact.id).appendTo(tr);
   $("<td>").text(contact.firstname).appendTo(tr);
   $("<td>").text(contact.email).appendTo(tr);
   $("<td>").text(contact.phone).appendTo(tr);
@@ -16,7 +14,6 @@ function addContactToDOM(index, contact) {
   editButton.appendTo(td);
   deleteButton.appendTo(td);
   td.appendTo(tr);
-  // editButton.on('click', editContact.bind(this, contact.id));
   deleteButton.on('click', deleteContact.bind(this, contact.id));
   editButton.on('click', function() {
     prepopulateEditForm(contact);
@@ -38,7 +35,6 @@ function receiveContacts(contacts) {
 function getContacts() {
   $("#displayContacts").empty();
   $.getJSON("/contacts", receiveContacts); 
-  // making a http get request request
 };
 
 $("#saveChangesToContactButton").on('click', function() {
@@ -57,7 +53,6 @@ $("#saveChangesToContactButton").on('click', function() {
       getContacts();
     }
   });
-
 
 });
 
@@ -87,46 +82,7 @@ function deleteContact(id) {
   });
 };
 
-// function editContact(contact) {
-//   $.ajax({
-//     url: '/contacts/' + contact.id,
-//     type: 'PUT',
-//     success: function(data) {
-//       getContacts();
-//     }
-//   });
-// };
-
-
-// $("#displayContacts tr").on('click', function() {
-//   alert('values: ' + $(this).find(".displayContacts").text() );
-
-// });
-
-
 
 });
-
-
-
-
-// $.get()
-// $.post()
-// $.getJSON()
-// $.ajax()
-  /*
-  1. Get data from form.
-  2. Create Object from data.
-      c = {name: dfsfd, number: 38940 };
-      $ajaxpost('/contacts', c);
-
-  [ 
-    {name:fsdf, number: fdsfds},
-    {name:fsdf, number: fdsfds},
-    ...
-  ]
-  
-  Iterating through the above list of json objects and adding a <tr> for each to the dom.
-  */
 
 
