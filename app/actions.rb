@@ -14,13 +14,31 @@ post '/contacts' do
   email = params[:email]
   phone = params[:phone]
   contact = Contact.new firstname: firstname, lastname: lastname, email: email, phone: phone
-  p contact
   if contact.save
     results[:result] = true
     results[:contact] = {id: contact.id}
   end
   results.to_json
 end
+
+#edit contact
+put '/contacts/:id' do |id|
+  p "EDIT CONTACT ROUTE CALLED"
+  contact = Contact.find(id)
+  results = {result: false}
+  contact.update_attributes({
+    firstname: params[:firstname],
+    lastname: params[:lastname],
+    email: params[:email],
+    phone: params[:phone]
+  })
+  if contact.save
+    results[:result] = true
+    results[:contact] = {id: contact.id}
+  end
+  results.to_json
+end
+
 #show contact details
 get '/contacts/:id' do
   contact = Contact.find params[:id]
