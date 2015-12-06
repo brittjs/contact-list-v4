@@ -54,7 +54,7 @@
       <div class="modal-body">
       
         <form>
-          <input type="text" id="hiddenId">
+          <input type="text" id="hiddenId" hidden>
           First name:<br>
           <input type="text" id="firstnameE">
           <br>
@@ -82,8 +82,8 @@
   <span class="glyphicon glyphicon-remove"></span>
 </button>
 
-<div class="input-group">
-  <input type="text" class="form-control" placeholder="Search contacts">
+<div id="search-box">
+  <input type="text" id="search-field" class="form-control" placeholder="Search contacts">
   <span class="input-group-btn">
     <button class="btn btn-default" type="button" id="searchContactsButton">Search</button>
   </span>

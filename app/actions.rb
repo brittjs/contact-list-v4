@@ -8,6 +8,7 @@ get '/contacts' do
 end
 #create contact
 post '/contacts' do
+  binding.pry
   results = {result: false}
   firstname = params[:firstname]
   lastname = params[:lastname]
