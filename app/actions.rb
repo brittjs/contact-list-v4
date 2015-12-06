@@ -8,13 +8,13 @@ get '/contacts' do
 end
 #create contact
 post '/contacts' do
-  binding.pry
   results = {result: false}
   firstname = params[:firstname]
   lastname = params[:lastname]
   email = params[:email]
   phone = params[:phone]
   contact = Contact.new firstname: firstname, lastname: lastname, email: email, phone: phone
+  p contact
   if contact.save
     results[:result] = true
     results[:contact] = {id: contact.id}
