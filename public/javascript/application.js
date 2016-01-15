@@ -1,17 +1,19 @@
 $(document).ready(function() {
 
   function addContactToDOM(index, contact) {
-    var tr = $("<tr>").appendTo("#displayContacts");
-    $("<td>").text(contact.firstname).appendTo(tr);
-    $("<td>").text(contact.email).appendTo(tr);
-    $("<td>").text(contact.phone).appendTo(tr);
+    var tr = $("<tr id='row'>").appendTo("#displayContacts");
+    $("<td id='first'>").text(contact.firstname).appendTo(tr);
+    $("<td id='email'>").text(contact.email).appendTo(tr);
+    $("<td id='phone'>").text(contact.phone).appendTo(tr);
 
-    var td = $("<td>");
+    var td = $("<td id='buttons'>");
+    // var div = $("<div id='editAndDelete'>")
     var deleteButton = $('<button type="button" class="btn btn-default btn-xs" id="deleteContactButton"><span class="glyphicon glyphicon-remove"></span></button>');
-    var editButton = $('<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#editContactModal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>');
+    var editButton = $('<button type="button" class="btn btn-default btn-xs" id="editContactButton" data-toggle="modal" data-target="#editContactModal"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>');
 
     editButton.appendTo(td);
     deleteButton.appendTo(td);
+    // div.appendTo(td);
     td.appendTo(tr);
     deleteButton.on('click', deleteContact.bind(this, contact.id));
     editButton.on('click', function() {

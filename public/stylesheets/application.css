@@ -1,0 +1,53 @@
+.container {
+  display: flex-inline;
+  width: 100vh;
+  min-width: 350px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-family: Georgia;
+}
+
+#addContact {
+  margin: 1.6em 0.25em 1.5em 1.5em;
+}
+
+#displayContacts {
+  display: flex;
+  font-family: serif;
+  font-size: 3vh;
+  justify-content: space-between;
+}
+
+#row {
+  display: flex;
+}
+
+#first{
+  flex: 1;
+}
+
+#email {
+  flex: 1;
+}
+
+#phone {
+  flex: 1;
+}
+
+#buttons {
+  margin-left: 2em;
+
+}
+
+td#email {
+  margin-left: 1.5em;
+}
+
+td#phone {
+  margin-left: 7.5em;
+  font-family: sans-serif;
+  font-size: 2.75vh;
+}
