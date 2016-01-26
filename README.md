@@ -1,7 +1,4 @@
-Sinatra
-=============
-
-Brought to you by Lighthouse Labs
+A  single page contact list app, built using Sinatra, Javascript, jQuery, and a JSON API.
 
 ## Getting Started
 
