@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   function addContactToDOM(index, contact) {
     var tr = $("<tr id='row'>").appendTo("#displayContacts");
-    $("<td id='first'>").text(contact.firstname).appendTo(tr);
+    $("<td id='first'>").text(contact.firstname + " "+ contact.lastname).appendTo(tr);
     $("<td id='email'>").text(contact.email).appendTo(tr);
     $("<td id='phone'>").text(contact.phone).appendTo(tr);
 
